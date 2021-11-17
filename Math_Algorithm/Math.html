@@ -26,14 +26,35 @@
 
         <div>
             <h3>2. Username Validation</h3>
+            <ul>
+                <li>1. The username is between 4 and 25 characters.</li>
+                <li>2. It must start with a letter.</li>
+                <li>3. It can only contain letters, numbers, and the underscore character.</li>
+                <li>4. It cannot end with an underscore character.</li>
+            </ul>
             <label for="">input string to check valit or not</label><br>
             <input type="text" name="" id="input_str">
             <button onclick="string()">Show Result</button>
             <div id="result1"></div>
         </div>
 
+
         <div>
-            <h3></h3>
+            <h3>3. Find Intersection</h3>
+            <p>
+                Input: ["1, 3, 4, 7, 13", "1, 2, 4, 13, 15"]
+                <br>
+                Output: 1,4,13
+            </p>
+            <div id="result_array"></div>
+        </div>
+
+        <div>
+            <h3>4. Questions Marks</h3>
+            <label for="test">input </label><br />
+            <input type="text" name="" id="question_mark">
+            <button onclick="qustionMark()">Show Result</button>
+            <div id="result_qustion_mark"></div>
         </div>
 
     </div>
@@ -49,7 +70,7 @@
             }
             document.getElementById("result").innerHTML = result
         }
-        //2.check string
+        //2.validate string
         function string() {
             const input_str = document.getElementById("input_str").value;
             //regex
@@ -59,7 +80,60 @@
 
             document.getElementById("result1").innerHTML = result
         }
-        //
+        //3. Find Intersection
+        const input_list1 = ["1, 3, 4, 7, 13", "1, 2, 4, 13, 15"]
+
+        function intersection(item) {
+            let list_value1 = input_list1[0].split(', ')
+            let list_value2 = input_list1[1].split(', ')
+            //console.log(list_value1) //Array(5) [ "1", "3", "4", "7", "13" ]
+            //console.log(list_value2) //Array(5) [ "1", "2", "4", "13", "15" ]
+
+            //let test = list_value1.filter(i => i > 4) // Array [ "7", "13" ]
+            //let test1 = list_value2.find(a => a > 4) // 13
+
+            //i is the each element in list_value1
+            //a is the each element in list_value2
+            let result = list_value1.filter(i => list_value2.find(a => a === i))
+
+
+            //or 
+            // let newArr = [];
+            // for (let i = 0; i < elem1.length; i++) {
+            //     if (elem2.includes(elem1[i])) {
+            //         newArr.push(elem1[i]);
+            //     }
+            // }
+            // return newArr.length === 0? false :newArr.toString()
+
+            return result.length > 0 ? result.join(',') : 'false'
+        }
+
+        document.getElementById("result_array").innerHTML = intersection()
+
+
+        //4. question mark 
+        function qustionMark() {
+            let question = document.getElementById("question_mark").value
+            let ques_result = false
+            for (let i = 0; i < question.length; i++) {
+                // console.log(i)
+                for (let j = i + 1; j < question.length; j++) {
+                    //console.log(Number(question[i])) // NaN 6 Nan 4 NaN 5
+                    console.log(question.slice(i, j).split("?"))
+
+                    if (Number(question[i]) + Number(question[j]) === 10) {
+                        ques_result = true;
+                        // slice i to j
+                        if (question.slice(i, j).split("?").length - 1 < 3) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            document.getElementById("result_qustion_mark").innerHTML = ques_result
+
+        }
     </script>
 </body>
 
