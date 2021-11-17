@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h3 {
+            color: red;
+        }
+    </style>
+    <title>Math Algorithm</title>
+</head>
+
+<body>
+    <div>
+        <h2>Click the button to show result</h2>
+        <div>
+            <h3>1. Factorial (4 * 3 * 2 * 1) = 24</h3>
+            <label for="test">input digit number</label><br />
+            <input type="text" name="" id="input">
+            <button onclick="FirstFactorial()">Show Result</button>
+            <div id="result"></div>
+        </div>
+
+        <div>
+            <h3>2. Username Validation</h3>
+            <label for="">input string to check valit or not</label><br>
+            <input type="text" name="" id="input_str">
+            <button onclick="string()">Show Result</button>
+            <div id="result1"></div>
+        </div>
+
+        <div>
+            <h3></h3>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. (4 * 3 * 2 * 1) = 24
+        function FirstFactorial() {
+            const input = document.getElementById("input").value;
+            let result = 1;
+            for (let i = 1; i <= input; i++) {
+                // console.log(i)
+                result *= i;
+            }
+            document.getElementById("result").innerHTML = result
+        }
+        //2.check string
+        function string() {
+            const input_str = document.getElementById("input_str").value;
+            //regex
+            const valid_reg = /^[A-Za-z]\w+[A-Za-z0-9]$/;
+            const valid_length = (input_str) => input_str.length >= 4 && input_str.length <= 25;
+            let result = valid_reg.test(input_str) && valid_length(input_str);
+
+            document.getElementById("result1").innerHTML = result
+        }
+        //
+    </script>
+</body>
+
+</html>
