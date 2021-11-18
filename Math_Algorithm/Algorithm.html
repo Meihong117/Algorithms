@@ -22,7 +22,7 @@
         <div>
             <h3>1. Factorial (4 * 3 * 2 * 1) = 24</h3>
             <label for="test">input digit number</label><br />
-            <input type="text" name="" id="input">
+            <input type="text" name="" id="input" >
             <button onclick="FirstFactorial()">Show Result</button>
             <div id="result"></div>
         </div>
@@ -36,7 +36,7 @@
                 <li>4. It cannot end with an underscore character.</li>
             </ul>
             <label for="">input string to check valit or not</label><br>
-            <input type="text" name="" id="input_str">
+            <input type="text" name="" id="input_str" autocomplete="off">
             <button onclick="string()">Show Result</button>
             <div id="result1"></div>
         </div>
@@ -56,7 +56,7 @@
             <h3>4. Questions Marks</h3>
             <p>Description: QuestionsMarks(str) take the str string parameter, which will contain single digit numbers, letters, and question marks, and check if there are exactly 3 question marks between every pair of two numbers that add up to 10. If so, then your program should return the string true, otherwise it should return the string false. If there aren't any two numbers that add up to 10 in the string, then your program should return false as well.</p>
             <label for="test">input example: ddd3???7ffds5????5</label><br />
-            <input type="text" name="" id="question_mark">
+            <input type="text" name="" id="question_mark" autocomplete="off">
             <button onclick="qustionMark()">Show Result</button><p class="problem_not_solved">Haven't solved option: the ??? marks, and satisfies whole options </p>
             <div id="result_qustion_mark"></div>
         </div>
@@ -64,10 +64,10 @@
         <div>
             <h3>5. Longest Word</h3>
             <label for="test">short -> long (example input:: dddddd ffff eeeee)</label><br />
-            <input type="text" name="" id="longest_word1"><br>
+            <input type="text" name="" id="longest_word1" autocomplete="off"><br>
             
             <label for="test">long -> short </label><br />
-            <input type="text" name="" id="longest_word2">
+            <input type="text" name="" id="longest_word2" autocomplete="off">
             <button onclick="longestWord()">Show Result</button>
             <div id="result_longest_word1"></div>
             <div id="result_longest_word2"></div>
@@ -76,15 +76,15 @@
         <div>
             <h3>6. Reverse Word</h3>
             <label for="test">input example: hello world </label><br />
-            <input type="text" name="" id="reverse"><br>
+            <input type="text" name="" id="reverse" autocomplete="off"><br>
             <button onclick="reverse()">Show Result</button>
             <div id="result_reverse"></div>
         </div>
 
         <div>
-            <h3>7. Chnange Letter in String </h3>
+            <h3>7. Change Letter in String </h3>
             <label for="test">input example: hi,i,am,hello</label><br />
-            <input type="text" name="" id="letter">
+            <input type="text" name="" id="letter" class="clear">
             <button onclick="changeLetter()">Show Result</button>
             <div id="result_change"></div>
         </div>
@@ -101,6 +101,11 @@
     </div>
 
     <script>
+        //clear input fields on page refresh || using autocomplete="off"
+        window.onload = function() {
+            document.getElementById('input').value = '';
+            document.getElementById('letter').value = '';
+        }
         // 1. (4 * 3 * 2 * 1) = 24
         function FirstFactorial() {
             const input = document.getElementById("input").value;
@@ -110,7 +115,9 @@
                 result *= i;
             }
             document.getElementById("result").innerHTML = result
+            
         }
+      
         //2.validate string
         function string() {
             const input_str = document.getElementById("input_str").value;
@@ -121,6 +128,7 @@
 
             document.getElementById("result1").innerHTML = result
         }
+       
         //3. Find Intersection
         const input_list1 = ["1, 3, 4, 7, 13", "1, 2, 4, 13, 15"]
         function intersection(item) {
