@@ -9,7 +9,8 @@
         h3 {
             color: red;
         }
-        .problem_not_solved{
+
+        .problem_not_solved {
             color: coral;
         }
     </style>
@@ -19,14 +20,15 @@
 <body>
     <div>
         <h2>JavaScript</h2>
+        <!--  -->
         <div>
             <h3>1. Factorial (4 * 3 * 2 * 1) = 24</h3>
             <label for="test">input digit number</label><br />
-            <input type="text" name="" id="input" >
+            <input type="text" name="" id="input">
             <button onclick="FirstFactorial()">Show Result</button>
             <div id="result"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>2. Username Validation</h3>
             <ul>
@@ -41,7 +43,7 @@
             <div id="result1"></div>
         </div>
 
-
+        <!--  -->
         <div>
             <h3>3. Find Intersection</h3>
             <p>
@@ -51,28 +53,33 @@
             </p>
             <div id="result_array"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>4. Questions Marks</h3>
-            <p>Description: QuestionsMarks(str) take the str string parameter, which will contain single digit numbers, letters, and question marks, and check if there are exactly 3 question marks between every pair of two numbers that add up to 10. If so, then your program should return the string true, otherwise it should return the string false. If there aren't any two numbers that add up to 10 in the string, then your program should return false as well.</p>
+            <p>Description: QuestionsMarks(str) take the str string parameter, which will contain single digit numbers,
+                letters, and question marks, and check if there are exactly 3 question marks between every pair of two
+                numbers that add up to 10. If so, then your program should return the string true, otherwise it should
+                return the string false. If there aren't any two numbers that add up to 10 in the string, then your
+                program should return false as well.</p>
             <label for="test">input example: ddd3???7ffds5????5</label><br />
             <input type="text" name="" id="question_mark" autocomplete="off">
-            <button onclick="qustionMark()">Show Result</button><p class="problem_not_solved">Haven't solved option: the ??? marks, and satisfies whole options </p>
+            <button onclick="qustionMark()">Show Result</button>
+            <p class="problem_not_solved">Haven't solved option: the ??? marks, and satisfies whole options </p>
             <div id="result_qustion_mark"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>5. Longest Word</h3>
             <label for="test">short -> long (example input:: dddddd ffff eeeee)</label><br />
             <input type="text" name="" id="longest_word1" autocomplete="off"><br>
-            
+
             <label for="test">long -> short </label><br />
             <input type="text" name="" id="longest_word2" autocomplete="off">
             <button onclick="longestWord()">Show Result</button>
             <div id="result_longest_word1"></div>
             <div id="result_longest_word2"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>6. Reverse Word</h3>
             <label for="test">input example: hello world </label><br />
@@ -80,7 +87,7 @@
             <button onclick="reverse()">Show Result</button>
             <div id="result_reverse"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>7. Change Letter in String </h3>
             <label for="test">input example: hi,i,am,hello</label><br />
@@ -88,21 +95,47 @@
             <button onclick="changeLetter()">Show Result</button>
             <div id="result_change"></div>
         </div>
-
+        <!--  -->
         <div>
             <h3>8. Counting Vowels </h3>
             <p>vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']</p>
             <p>sentence='Hello World'</p>
             <div id="result_vowel"></div>
-            
-            
         </div>
+        <!--  -->
+        <div>
+            <h3>9. Binary Gap</h3>
+            <p>Find the bigest binary gap <br> (eg: 1001->1 gap(length=2),1000100001->2gaps(1st length=3,2nd length=4),
+                1000100: 1gap(length=3))</p>
+            <p>9 has binary representation 1001,contain 1 binary gap of length2.</p>
+            <p>529 has binary representation 1000010001,contain 2 binary gap of length 4 and 3.</p>
+
+            <p>if number 16:
+            <pre>
+                    16%2=
+                        2
+                    16  0
+                    8   0
+                    4   0
+                    2   0
+                    1   1
+                    0
+                so it will be 10000;
+                1(2^4) +0(2^3) +0(2^2)...
+                </pre>
+            </p>
+            <p>input integer within the range [1, 2, ..., 147, 473,647]</p>
+            <input type="text" name="" id="binary" class="clear">
+            <button onclick="binaryGap()">Show Result</button>
+            <div id="result_binary"></div>
+        </div>
+
 
     </div>
 
     <script>
         //clear input fields on page refresh || using autocomplete="off"
-        window.onload = function() {
+        window.onload = function () {
             document.getElementById('input').value = '';
             document.getElementById('letter').value = '';
         }
@@ -111,13 +144,12 @@
             const input = document.getElementById("input").value;
             let result = 1;
             for (let i = 1; i <= input; i++) {
-                // console.log(i)
                 result *= i;
             }
             document.getElementById("result").innerHTML = result
-            
+
         }
-      
+
         //2.validate string
         function string() {
             const input_str = document.getElementById("input_str").value;
@@ -128,7 +160,7 @@
 
             document.getElementById("result1").innerHTML = result
         }
-       
+
         //3. Find Intersection
         const input_list1 = ["1, 3, 4, 7, 13", "1, 2, 4, 13, 15"]
         function intersection(item) {
@@ -166,69 +198,97 @@
                     //console.log(Number(question[i])) // NaN 6 Nan 4 NaN 5
                     if (Number(question[i]) + Number(question[j]) === 10) {
                         ques_result = true;
-                       
-                        if (question.slice(i, j).split("?").length-1  < 3) {
+
+                        if (question.slice(i, j).split("?").length - 1 < 3) {
                             ques_result = false;
                         }
                     }
                 }
             }
-           
+
             document.getElementById("result_qustion_mark").innerHTML = ques_result
         }
         //5. find the largest and shortest world 
-        function longestWord(){
-            let longestword1=document.getElementById('longest_word1').value
-            let longestword2=document.getElementById('longest_word2').value
-            if (longestword1==='' || longestword2===''){
+        function longestWord() {
+            let longestword1 = document.getElementById('longest_word1').value
+            let longestword2 = document.getElementById('longest_word2').value
+            if (longestword1 === '' || longestword2 === '') {
                 alert('fill in all Longest Word Input')
             }
             let word1 = longestword1.match(/[a-z]+/gi);
             let word2 = longestword2.match(/[a-z]+/gi);
-            
-            //short to long
-            let sorted1=word1.sort(function(a,b){return a.length - b.length;})
-            //long to short
-            let sorted2=word2.sort(function(a,b){return b.length - a.length;})
 
-            longestword1=sorted1[0]
-            longestword2=sorted2[0]
-           
+            //short to long
+            let sorted1 = word1.sort(function (a, b) { return a.length - b.length; })
+            //long to short
+            let sorted2 = word2.sort(function (a, b) { return b.length - a.length; })
+
+            longestword1 = sorted1[0]
+            longestword2 = sorted2[0]
+
             document.getElementById("result_longest_word1").innerHTML = longestword1
             document.getElementById("result_longest_word2").innerHTML = longestword2
         }
         //6. reverse charactor
-        function reverse(){
-            let reverse_word=document.getElementById('reverse').value
-            let result=reverse_word.split('').reverse().join('');
+        function reverse() {
+            let reverse_word = document.getElementById('reverse').value
+            let result = reverse_word.split('').reverse().join('');
             document.getElementById("result_reverse").innerHTML = result
         }
         //7. change letter in string 
-        function changeLetter(){
-            let letter=document.getElementById('letter').value
-            let change_result=letter.replace(/,/g, '-')
+        function changeLetter() {
+            let letter = document.getElementById('letter').value
+            let change_result = letter.replace(/,/g, '-')
             document.getElementById("result_change").innerHTML = change_result
         }
         //8. count vowels
-        function vowels(){
-            let sentence='Hello Uorldeeee' //string
+        function vowels() {
+            let sentence = 'Hello Uorldeeee' //string
             let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']; //object
-            
-            let count =0;
-            let sentence_split=sentence.split('') //object
- 
+
+            let count = 0;
+            let sentence_split = sentence.split('') //object
+
             //console.log(sentence_split.includes(vowels))  // return true or false     
-            for (let i=0; i < vowels.length; i++){
-            //   console.log(vowels)
-            //   console.log(sentence_split[i])
-            //   console.log(vowels)
-              if(vowels.includes(sentence_split[i])){
-                  return count++
-              }
+            for (let i = 0; i < vowels.length; i++) {
+                //   console.log(vowels)
+                //   console.log(sentence_split[i])
+                //   console.log(vowels)
+                if (vowels.includes(sentence_split[i])) {
+                    return count++
+                }
             }
-            
+
         }
         document.getElementById("result_vowel").innerHTML = vowels()
+
+        //9. bonary gap
+        function binaryGap() {
+            let input_binary = document.getElementById('binary').value
+            let foundOne = false;
+            let maxGap = 0;
+            let countZero = 0;
+
+            while (input_binary != 0) {
+                //if remain = 1
+                if (input_binary % 2 == 1) {
+                    foundOne = true
+                    countZero = 0
+                }
+                //if foundOne =true
+                else if (foundOne) {
+                    //countZero store data
+                    countZero++
+                    //compare which count is bigger
+                    if (countZero > maxGap) {
+                        maxGap = countZero
+                    }
+                }
+                input_binary = Math.floor(input_binary / 2) //9(9421): 1001
+                //console.log(countZero) //0 1 2 0
+            }
+            document.getElementById('result_binary').innerHTML = maxGap
+        }
 
     </script>
 </body>
