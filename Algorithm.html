@@ -130,6 +130,22 @@
             <div id="result_binary"></div>
         </div>
 
+        <!--  -->
+        <div>
+            <h3>10. Count Div</h3>
+            <p>if A=9, B=15, so from 9 to 15, we got seven numbers, then divided by k, count that k can evenly go into a number </p>
+            <form action="">
+                <label for="">A=</label>
+                <input type="text" name="" id="num1" class="clear"> <br>
+                <label for="">B=</label>
+                <input type="text" name="" id="num2" class="clear"><br>
+                <label for="">k=</label>
+                <input type="text" name="" id="k" class="clear"><br>
+            </form>
+            
+            <button onclick="countDiv()">Show Result</button>
+            <div id="result_countDiv"></div>
+        </div>
 
     </div>
 
@@ -139,6 +155,9 @@
             document.getElementById('input').value = '';
             document.getElementById('letter').value = '';
             document.getElementById('binary').value = '';
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('num3').value = '';
 
         }
         // 1. (4 * 3 * 2 * 1) = 24
@@ -293,6 +312,18 @@
             document.getElementById('result_binary').innerHTML = maxGap
         }
 
+        //10. countDiv
+        function countDiv(){
+            let num1=document.getElementById('num1').value
+            let num2=document.getElementById('num2').value
+            let k=document.getElementById('k').value
+            
+            let num= num2 - num1 +1
+            let count=Math.floor(num/k)
+            document.getElementById("result_countDiv").innerHTML = count
+        }
+    
+        //11.
     </script>
 </body>
 
