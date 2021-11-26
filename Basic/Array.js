@@ -8,6 +8,7 @@ let suace=['Mayo','Aioli','Rum']
 /*-------------Array method-------------*/
 // let add_to_the_front = fruits.unshift('Strawberry')
 // let add_to_the_end = fruits.push('Orange') 
+let myArray = ['start', ...fruits, 'end'] // add 'start' at the beginning & add 'end' at the end
 // let add_item = fruits.splice(1, 0, "Lemon", "Kiwi");
 // let add_symbol=fruits.join(" * "); // Apple * Banana
 
@@ -30,7 +31,7 @@ let suace=['Mayo','Aioli','Rum']
 
 
 /* -------------.forEach()-------------*/
-fruits.forEach((item, index, array)=> {console.log(item)}) 
+// fruits.forEach((item, index, array)=> {console.log(item)}) 
 // item = Apple Banana Watermelon....
 // index = 0 1 2 3 4
 // array = print 5 rows [ 'Apple', 'Banana', 'Watermelon', 'Tomato', 'Melon' ]
