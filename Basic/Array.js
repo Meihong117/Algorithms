@@ -38,20 +38,19 @@ fruits.forEach((item, index, array)=> {console.log(item)})
 
 
 /* ------------- loop: for, for/in, for/of, while, do/while --------------*/
-//--for (number)
+//--for
 for( let i=0;i<fruits.length;i++){
    console.log(i) //0 1 2 3 4
 }
 
-//--for...in (number)
+//--for...in 
 for (let i in fruits){
     console.log(i) //0 1 2 3 4 (same as 'for')
     console.log(fruits[i]) //Apple Banana Watermelon.... (same as 'for...of')
 }
 
-//--for...of (string)
+//--for...of
 for(let i of fruits){console.log(i)} //Apple Banana Watermelon....
-
 
 // Array.prototype.join()
 function Join(){
@@ -60,3 +59,14 @@ function Join(){
     console.log(elements.join(''))  // FireAirWater
     console.log(elements.join('-'));// Fire-Air-Water
 }
+
+// Array.prototype.slice()---(Classical Chunked Array problem)
+const chunckArray=(arr, size)=>{
+    let array1=[]
+    // if size=3; i+=size: 3,6,9,...
+    for(let i=0; i<arr.length; i+=size){
+        array1.push(arr.slice(i, i+size))
+    }
+    console.log(array1)
+}
+chunckArray([1,2,3,4,5,6], 2)
