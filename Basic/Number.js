@@ -6,7 +6,6 @@ If the num is negative zero, returns -0.
 Otherwise, NaN is returned.
 */
 
-
 // reverse the number 
 const reverseNum=(num)=>{
     let reversedNum=parseInt(num.toString().split('').reverse().join(''))*Math.sign(num)
@@ -14,7 +13,6 @@ const reverseNum=(num)=>{
     
 }
 reverseNum(-15)
-
 
 // classical fizzbuzz problem
 // Print integers 1 to N, but print “Fizz” if an integer is divisible by 3, “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is divisible by both 3 and 5.
