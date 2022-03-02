@@ -3,7 +3,7 @@ let vegs=['Radish','Carrot','Onion','Brokerli']
 let suace=['Mayo','Aioli','Rum']
 let array1=[1,2,3,4]
 
-/*-------------Array method-------------*/
+/*----------------------------------------------Array method-------------*/
 let array_length = fruits.length 
 let find_element = fruits[0] 
 let change_element1 =fruits[0] = "Kiwi";
@@ -30,14 +30,14 @@ let to_string= fruits.toString();
 
 
 
-/* -------------.forEach()-------------*/
+/* ------------------------------------------------.forEach()-------------*/
 fruits.forEach((item, index, array)=> {console.log(item)}) 
 // item = Apple Banana Watermelon....
 // index = 0 1 2 3 4
 // array = print 5 rows [ 'Apple', 'Banana', 'Watermelon', 'Tomato', 'Melon' ]
 
 
-/* ------------- loop: for, for/in, for/of, while, do/while --------------*/
+/* ------------------------------------------------loop: for, for/in, for/of, while, do/while --------------*/
 //--for
 for( let i=0;i<fruits.length;i++){
    console.log(i) //0 1 2 3 4
@@ -52,7 +52,7 @@ for (let i in fruits){
 //--for...of
 for(let i of fruits){console.log(i)} //Apple Banana Watermelon....
 
-// Array.prototype.join()
+//-------------------------------------------------.join()
 function Join(){
     const elements = ['Fire', 'Air', 'Water'];
     console.log(elements.join())    // Fire,Air,Water
@@ -60,7 +60,7 @@ function Join(){
     console.log(elements.join('-'));// Fire-Air-Water
 }
 
-// Array.prototype.slice()---(Classical Chunked Array problem)
+//-------------------------------------------------.slice()---(Classical Chunked Array problem)
 const chunckArray=(arr, size)=>{
     let array1=[]
     // if size=3; i+=size: 3,6,9,...
@@ -70,3 +70,16 @@ const chunckArray=(arr, size)=>{
     console.log(array1)
 }
 chunckArray([1,2,3,4,5,6], 2)
+
+//--------------------------------------------------.includes()
+const array11 = [1, 2, 3];
+console.log(array11.includes(2)); // expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+console.log(pets.includes('cat')); // expected output: true
+console.log(pets.includes('at')); // expected output: false
+
+//--------------------------------------------------.replace()
+const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+console.log(p.replace('dog', 'monkey'));
+console.log(p.replace(/Dog/i, 'ferret'));
