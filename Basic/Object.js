@@ -29,3 +29,29 @@ const maxCharacter=(str)=>{
     // console.log(`${maxNumChar} appears ${maxNum} times`)
 }
 maxCharacter('abbbbc**')
+
+//----return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. 
+function duplicateCount(text) {
+    let count = 0
+    let newtext = text.toLowerCase()
+    let obj = {}
+    for (let char of newtext) {
+        //char : a b c d e .....
+        //1st round: !obj[a]=false, so run obj[a] = 1
+        //2nd round: obj[a]!=1, so run obj[a]++
+      !obj[char] ? obj[char] = 1 : obj[char]++
+    }
+    let newObj = Object.values(obj)
+    for (let i = 0; i < newObj.length; i++) {
+      if (newObj[i] > 1) {
+        count += 1
+      }
+    }
+    console.log(count)
+  }
+  duplicateCount("") //output: 0
+  duplicateCount('abcde') //output: 0
+  duplicateCount("aabbcde") //output: 2
+  duplicateCount("aabBcde") //output: 2
+  duplicateCount("Indivisibility") //output: 1
+  duplicateCount("Indivisibilities") //output: 2
