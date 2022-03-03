@@ -27,3 +27,11 @@ const fizzbuzz=(number)=>{
     }
 }
 fizzbuzz(35)
+
+//----------filter
+function filter_list(list) {
+    const result = list.filter(word => word >= 0);
+   console.log(result)
+  }
+
+filter_list([1,2,'a','b']) == [1,2,'a','b']

@@ -14,3 +14,14 @@ const palindrome=(str)=>{
     // console.log(str===reversed)
 })('abbf')
 
+//---------------------double char
+function doubleChar(str){
+    let a=''
+    for(let i=0;i<str.length;i++){
+        let b=str[i]+str[i]
+        a+=b
+    }
+    console.log(a)
+}
+//test
+doubleChar("String")
