@@ -83,3 +83,18 @@ console.log(pets.includes('at')); // expected output: false
 const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
 console.log(p.replace('dog', 'monkey'));
 console.log(p.replace(/Dog/i, 'ferret'));
+
+
+//------------------------------------- find the unique array element
+function findUniq(arr) {
+    let array= arr[0]
+   for(let i=1; i<arr.length; i++){
+     if(array-arr[i]>0)return array
+     else if(array-arr[i]<0) return arr[i]
+   }
+ }
+ console.log(findUniq([ 1, 0, 0 ])) //1
+ console.log(findUniq([ 0, 0, 1 ]))  //1
+ console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])) //2
+ console.log(findUniq([ 1, 1, 2, 1, 1 ])) //2
+ console.log(findUniq([ 3, 10, 3, 3, 3 ])) //10
