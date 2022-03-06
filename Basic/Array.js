@@ -98,3 +98,69 @@ function findUniq(arr) {
  console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])) //2
  console.log(findUniq([ 1, 1, 2, 1, 1 ])) //2
  console.log(findUniq([ 3, 10, 3, 3, 3 ])) //10
+
+ //------------------------------------ filter one array from another array elements
+ function arrayDiff(a, b) {
+  if(a.length==0 || b.length==0){
+    return a
+}
+else{
+  function filterB(value){
+     //console.log(value) //value is the elements in a
+      console.log(!b.includes(value)) 
+  }
+  const result = a.filter(filterB) //filter when return false from func filterB
+  // return result 
+  }
+}
+//console.log(arrayDiff([], [4,5])) //[]
+console.log(arrayDiff([3,4], [3])) //[4]
+//console.log(arrayDiff([1,8,2], [])) //[1,8,2]
+console.log(arrayDiff([1,2,3], [1,2])) //[3]
+
+
+//---------------------- check if match
+// mrthod 1
+function validBraces(braces){
+    let tracer = []
+    for(let i=0;i < braces.length; i++){
+      if ( braces[i] === "(" || braces[i] === "{" || braces[i] === "["){
+        tracer.push(braces[i])
+        // console.log('tracer push: ',tracer)
+      } else{
+        if(tracer.length === 0) return false
+        let lastValue = tracer[tracer.length-1]
+        if( (braces[i] === ']' && lastValue === '[') || (braces[i] === '}' && lastValue === '{') || (braces[i] === ')' && lastValue === '('))
+        {
+          tracer.pop() // remove last value
+        //   console.log('tracer pop: ',tracer)
+        } else {
+          break;
+        }
+      }
+    }
+    return tracer.length === 0
+  } 
+// method 2
+const regex = /\(\)|\[\]|\{\}/;
+const validBraces = braces => regex.test(braces)
+  ? validBraces(braces.replace(regex, ''))
+  : '' === braces
+
+
+console.log(validBraces('{{}}')) // true
+// console.log(validBraces('{{[]}}')) // true
+// console.log(validBraces('{[{}]}')) // true
+// console.log(validBraces('({{}})')) // true
+// console.log(validBraces('{[()]}')) // true
+// console.log(validBraces('{{}[}')) // false
+// console.log(validBraces('{{]}}')) // false
+// console.log(validBraces('()))')) // false
+// console.log(validBraces('{({}}')) // false
+// console.log(validBraces('((}}')) // false
+// console.log(validBraces('}[)}')) // false
+
+
+
+
+  

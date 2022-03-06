@@ -24,3 +24,27 @@ function isTriangle(a,b,c)
 }
 console.log(isTriangle(1,2,2)) 
 console.log(isTriangle(7,2,2)) 
+
+//-------------------- find next square
+// method 1
+function findNextSquare(sq) {
+  var root1;
+  var nextroot;
+  if(Math.sqrt(sq)%1 ===0){
+       root1=Math.sqrt(sq)
+       nextroot=root1+1
+  }else{
+      return -1;
+  }
+  return nextroot*nextroot;
+}
+// or 
+// method 2:
+function findNextSquare(sq){
+  return Math.sqrt(sq)%1===0 ? Math.pow(Math.sqrt(sq)+1,2) : -1
+}
+
+console.log(findNextSquare(121)) //144
+console.log(findNextSquare(625) ) //676
+console.log(findNextSquare(319225) ) //320356
+console.log(findNextSquare(15241383936)) //15241630849

@@ -43,21 +43,7 @@ XO("Oo")//false
 XO("ooom")//false
 
 
-//--------------------------------------  /regexp/g is an ECMAScript1 (ES1) feature.
 
-let text = "Is this all_there is?";
-let pattern = /is/g;
-let pattern1 = /_/g
-let pattern2 =/[0-9]/g
-// #1
-let result = text.match(pattern); //[ 'is', 'is' ]
-let resultLength = text.match(pattern).length //2
-let result_replace = text.replace(pattern1, ' ');
-// #2
-let test = pattern.test(text);
-let result_exec = pattern.exec(text);
-
-console.log(result_replace)
 
 //------------------------- sort the string with the number order
 function order(words){
@@ -91,6 +77,23 @@ console.log(getMiddle("testing"))
 const str = 'Mozilla';
 console.log(str.substring(1, 3)); //"oz"
 console.log(str.substring(2)); //"zilla"
+
+//-------------------------- make the first word to uppercase
+String.prototype.toJadenCase = function() {
+  var result = this; // call string ="this is a test"
+  //split the statement into each word
+  if (this.length !== 0) {
+      function str(word) {
+          // 1st letter to capitalize then plus rest of letters
+          return word.substring(0, 1).toUpperCase() + word.substring(1);
+        }
+      result = this.split(" ").map(str).join(" ");
+  }
+  // return result;
+};
+console.log("this is a test".toJadenCase()); //This Is A Test
+console.log("oneword".toJadenCase()); //Oneword
+console.log("blank: " + ("".toJadenCase())); //blank: 
 
 
 

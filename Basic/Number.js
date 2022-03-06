@@ -61,3 +61,19 @@ getSum(-1,2) // 2
 getSum(1,1) //1
 
 
+//-------------------------------- check pin number
+function validatePIN (pin) {
+    let resu=pin.match(/[^0-9]/g)
+    if(resu){
+        return false
+    } 
+    if(pin.length==4 || pin.length==6){
+        return true
+    } else return false
+}
+console.log(validatePIN("-1234") ) //false
+console.log(validatePIN("-1.234") ) //false
+console.log(validatePIN("a123") ) //false
+console.log(validatePIN("1") ) //false
+console.log(validatePIN("1234") )  //true
+console.log(validatePIN("123456") ) //ture
