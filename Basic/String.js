@@ -97,3 +97,27 @@ console.log("blank: " + ("".toJadenCase())); //blank:
 
 
 
+//---------------------- Build a pyramid-shaped tower --output array 
+function towerBuilder(n) {
+  let result=[]
+  for(let i=1; i<= n; i++){
+    let str = ' '.repeat(n-i);
+    let str2 = '*'. repeat(i*2 -1)
+    result.push(str + str2 + str);
+  }
+  return results
+}
+// Build a pyramid-shaped tower --tower shape
+function towerBuilder(n) {
+  for(let i=1; i<= n; i++){
+    let str = ' '.repeat(n-i);
+    let str2 = '*'. repeat(i*2 -1)
+    console.log(str + str2 + str);
+  }
+}
+console.log(towerBuilder(1)) // ["*"]
+console.log(towerBuilder(2)) // [ ' * ', '***' ]
+console.log(towerBuilder(3)) // [ '  *  ', ' *** ', '*****' ]
+
+
+  

@@ -180,3 +180,18 @@ a1 = [121, 144, 19, 161, 19, 144, 19, 11];
 a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19];
 
 console.log(comp(a1, a2)) // true
+
+//-------------------- remove the smallest element and return rest array 
+function removeSmallest(arr) {
+ 
+  let findSmallest=Math.min(...arr) // 1
+  let findIndex=arr.indexOf(findSmallest) //0
+  arr.splice(findIndex ,1) 
+  return arr;
+}
+
+console.log(removeSmallest([1, 2, 3, 4, 5])) // [ 2, 3, 4, 5 ]
+console.log(removeSmallest([5, 3, 2, 1, 4])) // [ 5, 3, 2, 4 ]
+console.log(removeSmallest([2, 2, 1, 2, 1])) // [ 2, 2, 2, 1 ]
+
+
