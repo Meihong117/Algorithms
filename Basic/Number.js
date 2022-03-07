@@ -77,3 +77,25 @@ console.log(validatePIN("a123") ) //false
 console.log(validatePIN("1") ) //false
 console.log(validatePIN("1234") )  //true
 console.log(validatePIN("123456") ) //ture
+
+
+//--------------------- (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k 
+function digPow(n, p){
+    var digits = n.toString().split('');
+    let result=0
+    for (let i=0; i<digits.length;i++){
+      let pow_num=Math.pow(digits[i],(p+i))
+       result+=pow_num
+    }
+    let num=result/n
+    if(result===n*num){
+      return num
+    }else return -1
+}
+  
+console.log(digPow(89, 1)) // 1
+console.log(digPow(92, 1)) // -1
+console.log(digPow(46288, 3)) // 51
+  
+  
+    

@@ -161,6 +161,22 @@ console.log(validBraces('{{}}')) // true
 // console.log(validBraces('}[)}')) // false
 
 
+// ------------------------checks whether the two arrays have the "same" elements
 
+function comp(array1, array2){
+  let  result2=[]
+  for (let i of array2){
+    result2.push(Math.sqrt(i))
+  }
+  let new_result2=result2.sort((a, b) => a - b)
+  let new_result1=array1.sort((a, b) => a - b)
+  for (let i=0;i<array1.length;i++){
+    if (new_result2[i]==new_result1[i]) return true
+    else return false
+  }
+}
 
-  
+a1 = [121, 144, 19, 161, 19, 144, 19, 11];
+a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19];
+
+console.log(comp(a1, a2)) // true
