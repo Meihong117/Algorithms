@@ -194,4 +194,28 @@ console.log(removeSmallest([1, 2, 3, 4, 5])) // [ 2, 3, 4, 5 ]
 console.log(removeSmallest([5, 3, 2, 1, 4])) // [ 5, 3, 2, 4 ]
 console.log(removeSmallest([2, 2, 1, 2, 1])) // [ 2, 2, 2, 1 ]
 
+//------------------------ calculate  the whole time in queue
+// element in the array is the time people consume, n=till numbers
+function queueTime(customers, n) {
+  const sumarray = customers.reduce((a,b) => a+b, 0);
+  const uniqueNums = [...new Set(customers)];
+  const removeDuplicateSum=uniqueNums.reduce((a,b) => a+b, 0);
+  const findMax=Math.max(...customers)
+
+  if(n==1) {
+    return sumarray
+  }
+  if(n>=2 && sumarray>n){
+    return removeDuplicateSum
+  }
+  if(n>=2 && sumarray<n){
+    return findMax
+  }
+}
+
+console.log(queueTime([], 1)) // 0
+console.log(queueTime([1,2,3,4], 1)) // 10
+console.log(queueTime([2,2,3,3,4,4], 2)) // 9
+console.log(queueTime([1,2,3,4,5], 100)) // 5
+
 
