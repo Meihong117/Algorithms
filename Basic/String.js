@@ -120,4 +120,23 @@ console.log(towerBuilder(2)) // [ ' * ', '***' ]
 console.log(towerBuilder(3)) // [ '  *  ', ' *** ', '*****' ]
 
 
+  //-------------------- find the double character in string
+  function solution(S) {
+    var count = {};
+    S.split('').forEach(function(s) {
+       count[s] ? count[s]++ : count[s] = 1;
+    });
+    let arr = Object.values(count);
+    let arr1 = Object.keys(count);
   
+    for(let i=0;i<arr.length;i++){
+      if(arr[i]>1){
+          return arr1[i]
+      }
+    }
+  }
+  console.log(solution('abb')) // 21
+  console.log(solution('aba')) // 21
+  console.log(solution('zz')) // 21
+  console.log(solution('zzsjehfyrn')) // 21
+

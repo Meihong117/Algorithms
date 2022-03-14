@@ -97,5 +97,21 @@ console.log(digPow(89, 1)) // 1
 console.log(digPow(92, 1)) // -1
 console.log(digPow(46288, 3)) // 51
   
+//----------------------- split number: 3^3 + 7^3 + 1^3=371
+function narcissistic(value) {
+    let n=value.toString().length
+    let number = value.toString().split('')
+    let result =0 // set the initial value=0
+
+    for (let i of number){
+       result += Math.pow(i, n)
+    }
+    if(value==result) return true
+    else return false
+  }
+
+console.log(narcissistic( 7 ))
+console.log(narcissistic( 371 ))
+
   
     
