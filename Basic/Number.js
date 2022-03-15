@@ -114,4 +114,39 @@ console.log(narcissistic( 7 ))
 console.log(narcissistic( 371 ))
 
   
-    
+// -------- Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+function SeriesSum(n)
+{
+  let result=1
+  let reverage=1
+  for(let i=1;i<n;i++){
+    reverage+=3
+    result+=1/reverage
+  }
+  // method2
+  // for (var s = 0, i = 0; i < n; i++) {
+  //   s += 1 / (1 + i * 3)
+  // }
+  return result.toFixed(2)
+}
+
+console.log(SeriesSum(2)) //1.25
+console.log(SeriesSum(3)) //1.39
+
+// ----------- no 5 : 1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+function dontGiveMeFive(start, end)
+{
+  let count=0
+  for(let i=start; i<=end;i++){
+    // convert to string, then check included or not
+    if(!(i + '').includes('5')){
+      count++
+    }
+  }
+  return count
+}
+
+console.log(dontGiveMeFive(1,9)) //8
+console.log(dontGiveMeFive(4,17)) //12
+
+

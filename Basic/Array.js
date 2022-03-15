@@ -14,18 +14,17 @@ let add_to_the_front = fruits.unshift('Strawberry')
 let add_to_the_end = fruits.push('Orange') 
 let add_to_start_n_end = ['start', ...fruits, 'end'] // add 'start' at the beginning & add 'end' at the end
 let add_item = fruits.splice(1, 0, "Lemon", "Kiwi");
-
 let remove_from_end = fruits.pop()
-let remove_from_front = fruits.shift() 
+
+const remove_first_ele = array1.shift();
+console.log(array1);// expected output: Array [2, 3]
+console.log(firstElement);// expected output: 1 
+
 let remove_item = fruits.splice(fruits, 3) // remove from 1st to 3rd items
 let remove_item_from_to=fruits.splice(2, 2, "Lemon", "Kiwi");
-
 let find_index = fruits.indexOf('Banana')
-
 let make_a_copy = fruits.slice()
-
 let merging_existing_arrays= fruits.concat(vegs,suace);
-
 let to_string= fruits.toString();
 
 
@@ -217,5 +216,38 @@ console.log(queueTime([], 1)) // 0
 console.log(queueTime([1,2,3,4], 1)) // 10
 console.log(queueTime([2,2,3,3,4,4], 2)) // 9
 console.log(queueTime([1,2,3,4,5], 100)) // 5
+
+
+//------ You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+function sortArray(array) {
+  const oddArr = [];
+  const evenArr = [];
+  const result = [];
+  for (let i of array) {
+    if (i%2 === 0) {
+      evenArr.push(i);
+    } else {
+      oddArr.push(i);
+    }
+  }  
+  
+  oddArr.sort((a, b) => a - b);  
+  
+  for (let i of array) {
+    if (i%2 === 0) {
+      result.push(evenArr.shift());
+    } else {
+      result.push(oddArr.shift());
+    }
+  }  
+  
+  return result;
+  // method2
+  // const odd = array.filter((x) => x % 2).sort((a,b) => a - b);
+  // return array.map((x) => x % 2 ? odd.shift() : x);
+}
+
+console.log(sortArray([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
+console.log(sortArray([5, 3, 1, 8, 0])) //[1, 3, 5, 8, 0]
 
 
