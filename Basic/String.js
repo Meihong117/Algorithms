@@ -120,23 +120,73 @@ console.log(towerBuilder(2)) // [ ' * ', '***' ]
 console.log(towerBuilder(3)) // [ '  *  ', ' *** ', '*****' ]
 
 
-  //-------------------- find the double character in string
-  function solution(S) {
-    var count = {};
-    S.split('').forEach(function(s) {
-       count[s] ? count[s]++ : count[s] = 1;
-    });
-    let arr = Object.values(count);
-    let arr1 = Object.keys(count);
-  
-    for(let i=0;i<arr.length;i++){
-      if(arr[i]>1){
-          return arr1[i]
-      }
+//-------------------- find the double character in string
+function solution(S) {
+  var count = {};
+  S.split('').forEach(function(s) {
+      count[s] ? count[s]++ : count[s] = 1;
+  });
+  let arr = Object.values(count);
+  let arr1 = Object.keys(count);
+
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]>1){
+        return arr1[i]
     }
   }
-  console.log(solution('abb')) // 21
-  console.log(solution('aba')) // 21
-  console.log(solution('zz')) // 21
-  console.log(solution('zzsjehfyrn')) // 21
+}
+console.log(solution('abb')) // 21
+console.log(solution('aba')) // 21
+console.log(solution('zz')) // 21
+console.log(solution('zzsjehfyrn')) // 21
 
+//-------------------- IP Validation: check contain any special charater...
+function isValidIP(str) {
+  let string= str.split('.')
+  var regExp = /^0[0-9].*$/
+  let space=/\s/g
+  let count=0
+  let match = /\n/;
+  let matchCharater=/[a-z]/i
+  for(let i of string){
+    
+    let num=parseInt(i)
+    console.log(num)
+    if(string.length!=4 ||  (0<num && num>255) || isNaN(num) || match.exec(i) || regExp.test(i) || space.test(i) || i.match(matchCharater ) || i.includes("-")){
+      count+=1
+    }
+  }
+  if(count>0) return false
+  else return true
+}
+// return true
+// console.log(isValidIP("0.0.0.0"))
+// console.log(isValidIP("12.255.56.1"))
+// console.log(isValidIP("137.255.156.100"))
+
+// return false
+
+// console.log(isValidIP('abc.def.ghi.jkl'))
+// console.log(isValidIP('123.456.789.0'))
+// console.log(isValidIP('12.34.56'))
+// console.log(isValidIP('\n1.2.3.4'))
+// console.log(isValidIP('01.02.03.04'))
+
+// console.log(isValidIP('1e0.1e1.1e2.2e2')) 
+// console.log(isValidIP(' 1.2.3.4'))
+// console.log(isValidIP('1.2.3.4 '))
+console.log(isValidIP('12.34.56.-7')) 
+  
+  
+//-------------------- Extract the domain name from a URL
+function domainName(url){
+  var domain = url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0].split('.')[0];
+  return domain
+}
+
+console.log(domainName("http://google.com")) //google
+console.log(domainName("http://google.co.jp")) //google
+console.log(domainName("https://youtube.com")) //youtube
+console.log(domainName("www.xakep.ru")) //xakep
+
+  
