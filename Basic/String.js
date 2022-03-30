@@ -189,4 +189,39 @@ console.log(domainName("http://google.co.jp")) //google
 console.log(domainName("https://youtube.com")) //youtube
 console.log(domainName("www.xakep.ru")) //xakep
 
+//-------------------- String incrementer: add 1 
+function incrementString (strng) { 
+  if(strng.length>0){
+      let num = strng.match(/\d+/g)
+      var letr =  strng.match(/[a-zA-Z]+/g)[0];
+      let result
+      
+      if(num){
+          let convert_to_num=parseInt(num[0])
+          let add_one=convert_to_num+1 //2
+          let to_string=add_one.toString() //string
+          let sub_result
+          if(to_string.length==1){
+              sub_result=to_string.padStart(3, '0')
+              result= letr+sub_result
+          }
+          else if(to_string.length==2 && convert_to_num<99) {
+              sub_result=to_string.padStart(2, '0')
+              result= letr+sub_result
+          }
+          else result= letr+add_one
+      }
+      else{
+      let add=  strng.concat('1')
+      result=add
+      }
+      return result
+  }
+  else return "1"
   
+}
+
+console.log(incrementString("foobar001")) //foobar002
+console.log(  incrementString("foobar99")) //foobar100
+console.log(incrementString("foo"))//foo1
+console.log(incrementString("")) //1
