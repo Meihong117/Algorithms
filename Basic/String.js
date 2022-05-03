@@ -225,3 +225,13 @@ console.log(incrementString("foobar001")) //foobar002
 console.log(  incrementString("foobar99")) //foobar100
 console.log(incrementString("foo"))//foo1
 console.log(incrementString("")) //1
+
+
+//-------------- find the length of the Shortest Word
+function findShort(s){
+  let new_s=s.split(' ')
+  new_s.sort((a, b) => a.length - b.length)
+  return new_s[0].length
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
