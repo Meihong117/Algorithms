@@ -251,3 +251,11 @@ console.log(sortArray([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
 console.log(sortArray([5, 3, 1, 8, 0])) //[1, 3, 5, 8, 0]
 
 
+//-------------------find the middle of number index
+// .slice() make it immutable
+function gimme (triplet) {
+  find_middle=triplet.slice().sort((a, b) => a - b)[1]
+  return triplet.indexOf(find_middle)
+}
+console.log(gimme([2, 3, 1])) //0
+console.log(gimme([5, 10, 14])) //1
